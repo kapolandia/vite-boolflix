@@ -34,7 +34,12 @@
                 <div class="my-description">
                     <p class="m-0"><b>Titolo:</b> {{ film.title }}</p>
                     <p class="m-0"><b>Titolo originale:</b> {{ film.original_title }}</p>
-                    <p class="m-0"><b>Lingua:</b> 🇮🇹</p>
+                    <p class="m-0">
+                        <b>Lingua:</b>
+                        <span v-if="film.original_language === 'it'">🇮🇹</span>
+                        <span v-else-if="film.original_language === 'en'">🏴󠁧󠁢󠁥󠁮󠁧󠁿</span>
+                        <span  v-else>🏴</span>
+                    </p>
                     <p class="m-0">
                         <b>Rating: ⭐️</b>
                         <span v-if="film.vote_average > 2">⭐️</span>
