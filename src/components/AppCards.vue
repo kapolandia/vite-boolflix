@@ -30,7 +30,8 @@
     <div class="row justify-content-center align-items-center mx-0">
         <div class="col-3 my-3" v-for="film in store.searchResult" style="position: relative;">
             <div class="film-container">
-                <img :src="getSrcFromApi(film.poster_path)" alt="">
+                <img v-if="film.poster_path" :src="getSrcFromApi(film.poster_path)" alt="">
+                <img v-else src="https://w0.peakpx.com/wallpaper/172/343/HD-wallpaper-netflix-logo-black-logo-minimal-netflix.jpg" alt="" style="max-width: 342px;aspect-ratio: 1.3/2;">
                 <div class="my-description">
                     <p class="m-0"><b>Titolo:</b> {{ film.title }}</p>
                     <p class="m-0"><b>Titolo originale:</b> {{ film.original_title }}</p>
