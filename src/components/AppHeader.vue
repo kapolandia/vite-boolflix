@@ -21,7 +21,19 @@ import { store } from '../store.js';
                     .then((response) => {
                     store.searchResult = [];
                     store.searchResult = response.data.results;
-                    console.log(store.searchResult);
+                });
+            },
+            searchCallApiSeries() {
+                axios.get('https://api.themoviedb.org/3/search/tv?',{
+                    params: {
+                        api_key: "9d769840d258dadf154fb965f491f4bb",
+                        query: this.searchCall
+                    }
+                })
+                    .then((response) => {
+                    store.searchResultSeries = [];
+                    store.searchResultSeries = response.data.results;
+                    console.log(store.searchResultSeries);
                 });
             },
         }
@@ -60,7 +72,7 @@ import { store } from '../store.js';
       </ul>
       <form class="d-flex ms-auto" role="search">
         <input class="form-control me-2" type="search" placeholder="Cerca un film" aria-label="Search" v-model="searchCall">
-        <button class="btn btn-danger" @click.prevent="this.searchCallApi" ><i class="fa-solid fa-magnifying-glass"></i></button>
+        <button class="btn btn-danger" @click.prevent="this.searchCallApi();this.searchCallApiSeries()" ><i class="fa-solid fa-magnifying-glass"></i></button>
       </form>
     </div>
   </div>

@@ -2,7 +2,7 @@
     import { store } from '../store.js';
 
     export default{
-        name: "AppCards",
+        name: "AppCardsSeries",
         data(){
             return{
                 store: store,
@@ -22,7 +22,7 @@
                 }
             },
             moveRight(){
-                if(store.searchResult.length > ((this.movedRight * 2) +2)){
+                if(store.searchResultSeries.length > ((this.movedRight * 2) +2)){
                     this.arrowVar -= 660;
                     this.movedRight += 1;
                     console.log(this.movedRight)
@@ -47,15 +47,15 @@
         <div>
             <button class="my-arrow-right" @click="moveRight"><i class="fa-solid fa-chevron-right" @click="moveRight"></i></button>
         </div>
-        <h2 class="m-3 text-white" >Film</h2>
+        <h2 class="m-3 text-white" >Serie TV</h2>
         <div class="my-row  align-items-center mx-0" :style="{left: this.arrowVar + 'px'}">
-            <div class="m-3" v-for="film, index in store.searchResult" >            
+            <div class="m-3" v-for="film, index in store.searchResultSeries" >            
                 <div class="film-container rounded">
                     <img v-if="film.poster_path" :src="getSrcFromApi(film.poster_path)" alt="">
                     <img v-else src="https://w0.peakpx.com/wallpaper/172/343/HD-wallpaper-netflix-logo-black-logo-minimal-netflix.jpg" alt="" style="max-width: 342px;aspect-ratio: 1.3/2;">
                     <div class="my-description">
-                        <p class="m-0"><b>Titolo:</b> {{ film.title }}</p>
-                        <p class="m-0"><b>Titolo originale:</b> {{ film.original_title }}</p>
+                        <p class="m-0"><b>Titolo:</b> {{ film.name }}</p>
+                        <p class="m-0"><b>Titolo originale:</b> {{ film.original_name }}</p>
                         <p class="m-0">
                             <b>Lingua:</b>
                             <span v-if="film.original_language == 'it'">🇮🇹</span>
@@ -122,7 +122,7 @@
     .my-arrow{
         position: absolute;
         left: 0;
-        top: 360px;
+        top: 910px;
         z-index: 2;
         background-color: rgba(37, 37, 37, 0.732);
         border: none;
@@ -137,7 +137,7 @@
     .my-arrow-right{
         position: absolute;
         right: 0;
-        top: 360px;
+        top: 910px;
         z-index: 2;
         background-color: rgba(37, 37, 37, 0.732);
         border: none;

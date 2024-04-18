@@ -1,6 +1,7 @@
 <script setup>
 import AppHeader from './components/AppHeader.vue'
 import AppCards from './components/AppCards.vue'
+import AppCardsSeries from './components/AppCardsSeries.vue'
 
 </script>
 
@@ -12,6 +13,7 @@ import AppCards from './components/AppCards.vue'
 
     <main>
       <AppCards></AppCards>
+      <AppCardsSeries></AppCardsSeries>
     </main>
   </body>
 </template>
