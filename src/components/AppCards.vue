@@ -22,7 +22,7 @@
                 }
             },
             moveRight(){
-                if(store.searchResult.length > ((this.movedRight * 2) +2)){
+                if(store.searchResult.length > ((this.movedRight * 2) +2) && store.searchResult.length > 4){
                     this.arrowVar -= 660;
                     this.movedRight += 1;
                     console.log(this.movedRight)
