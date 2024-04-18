@@ -19,5 +19,6 @@ import AppCards from './components/AppCards.vue'
 <style >
   body{
     background-color: #1C1C1C;
+    overflow-x: hidden;
   }
 </style>
